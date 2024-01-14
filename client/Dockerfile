@@ -27,7 +27,7 @@ FROM deps as build
 COPY . .
  
 # Run the build script.
-
+RUN yarn add sharp --ignore-engines
 RUN yarn run build
 ################################################################################
 # Create a new stage to run the application with minimal runtime dependencies
