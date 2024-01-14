@@ -31,7 +31,7 @@ services:
       DB_PASSWORD: 'herU@1234'
       DB_DB: 'sep'
       DB_HOST: mysqldb
-    command: npm start
+    command: npm run dev
     expose:
       - 3005
     networks:
