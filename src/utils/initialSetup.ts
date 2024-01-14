@@ -8,10 +8,12 @@ const init = () => {
         password: process.env.DB_PASSWORD,
         database: process.env.DB_NAME
     });
+
     connection.connect((err) => {
         if (err) throw err;
         console.log('Connected!');
     });
+    connection.query('use sep');
     return connection;    
 }
 
