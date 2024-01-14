@@ -6,7 +6,7 @@ services:
     environment:
       MYSQL_ROOT_PASSWORD: herU@1234
       MYSQL_DATABASE: sep
-      MYSQL_USER: root
+      MYSQL_USER: admin
       MYSQL_PASSWORD: herU@1234
     ports:
       - 3306:3306
@@ -27,7 +27,7 @@ services:
     environment:
       PORT: 3005
       DB_PORT: 3306
-      DB_USER: 'root'
+      DB_USER: 'admin'
       DB_PASSWORD: 'herU@1234'
       DB_DB: 'sep'
       DB_HOST: mysqldb
