@@ -11,7 +11,6 @@ COPY package.json ./
 RUN npm install
 
 # Build the application
-RUN npm run build
 
 # Copy the rest of project files into this image
 COPY . .
@@ -20,4 +19,4 @@ COPY . .
 EXPOSE 3005
 
 # Start the application
-CMD npm start
+CMD npm run dev
