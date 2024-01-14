@@ -32,6 +32,8 @@ services:
       DB_DB: 'sep'
       DB_HOST: mysqldb
     command: npm start
+    expose:
+      - 3005
     networks:
       - sep-network
     depends_on:
@@ -42,14 +44,14 @@ services:
     restart: always
     build: ./client
     ports:
-      - 1527:1527
+      - 3000:3000
+    expose:
+      - 3000
     environment:
       PUBLIC_BACKEND_URL: 'http://localhost:3005'
     command: npm run serve
     networks:
       - sep-network
-    depends_on:
-      - nodejs
 networks:
   sep-network:
     driver: bridge
