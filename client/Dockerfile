@@ -16,6 +16,7 @@ FROM base as deps
 # Leverage bind mounts to package.json and yarn.lock to avoid having to copy them
 # into this layer.
 RUN --mount=type=bind,source=package.json,target=package.json \
+   --mount=type=bind,source=yarn.lock,target=yarn.lock \
    --mount=type=cache,target=/root/.yarn \
    yarn install --frozen-lockfile
  
@@ -27,6 +28,7 @@ FROM deps as build
 COPY . .
  
 # Run the build script.
+
 RUN yarn run build
 ################################################################################
 # Create a new stage to run the application with minimal runtime dependencies
