@@ -1,10 +1,13 @@
 import init    from "./utils/initialSetup";
 import express from "express";
 import cors from "cors";
-import cryto from "crypto";
+import dotenv from "dotenv";
+
 const app = express();
 app.use(cors());
 app.use(express.json());
+
+dotenv.config();
 
 const db = init();
 

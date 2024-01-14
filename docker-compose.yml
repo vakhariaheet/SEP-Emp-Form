@@ -1,0 +1,55 @@
+services:
+  mysqldb:
+    image: mysql:5.7
+    container_name: mysqldb
+    restart: unless-stopped
+    environment:
+      MYSQL_ROOT_PASSWORD: herU@1234
+      MYSQL_DATABASE: sep
+      MYSQL_USER: root
+      MYSQL_PASSWORD: herU@1234
+    ports:
+      - 3306:3306
+    volumes:
+      - ./db/init.sql:/docker-entrypoint-initdb.d/0_init.sql
+      - $HOME/database:/var/lib/mysql
+    expose:
+      - 3306
+    networks:
+      - sep-network
+  nodejs:
+    image: node:latest
+    container_name: nodejs
+    restart: always
+    build: .
+    ports:
+      - 3005:3005
+    environment:
+      PORT: 3005
+      DB_PORT: 3306
+      DB_USER: 'root'
+      DB_PASSWORD: 'herU@1234'
+      DB_DB: 'sep'
+      DB_HOST: mysqldb
+    command: npm start
+    networks:
+      - sep-network
+    depends_on:
+      - mysqldb
+  client:
+    image: node:latest
+    container_name: client
+    restart: always
+    build: ./client
+    ports:
+      - 1527:1527
+    environment:
+      PUBLIC_BACKEND_URL: 'http://localhost:3005'
+    command: npm run serve
+    networks:
+      - sep-network
+    depends_on:
+      - nodejs
+networks:
+  sep-network:
+    driver: bridge
