@@ -3,7 +3,7 @@ import type { DocumentHead } from '@builder.io/qwik-city';
 import { Form, routeAction$ } from '@builder.io/qwik-city';
 
 export const useEmployAction = routeAction$(async (data) => {
-	const resp = await fetch(import.meta.env.PUBLIC_BACKEND_URL+'/api/add', {
+	const resp = await fetch(import.meta.env.PUBLIC_BACKEND_URL + '/api/add', {
 		method: 'POST',
 		headers: {
 			'Content-Type': 'application/json',
@@ -52,13 +52,14 @@ export default component$(() => {
 	const salary = useSignal('');
 	const position = useSignal('');
 	const joinDate = useSignal('2024-01-01');
-  const action = useEmployAction();
-  const resetForm = $(() => { 
-    name.value = '';
-    salary.value = '';
-    position.value = '';
-    joinDate.value = '2024-01-01';
-  })
+	const showPositionsModal = useSignal(false);
+	const action = useEmployAction();
+	const resetForm = $(() => {
+		name.value = '';
+		salary.value = '';
+		position.value = '';
+		joinDate.value = '2024-01-01';
+	});
 	const getAcknowledgementMessage = useComputed$(async () => {
 		if (action.value?.isSuccess && action.value.status === 200) {
 			const confetti = await loadConfetti();
@@ -73,13 +74,12 @@ export default component$(() => {
 			setTimeout(shoot, 100);
 			setTimeout(shoot, 200);
 			setTimeout(shoot, 300);
-      setTimeout(shoot, 400);
-      resetForm();
+			setTimeout(shoot, 400);
+			resetForm();
 			return 'Employee added successfully';
 		}
-    if (!action.value?.isSuccess && action.value?.status === 400) {
-      return action.value?.message;
-      
+		if (!action.value?.isSuccess && action.value?.status === 400) {
+			return action.value?.message;
 		}
 		return 'This is a default message would be replaced by the above two messages and would never be shown';
 	});
@@ -114,12 +114,53 @@ export default component$(() => {
 				</label>
 				<label>
 					<span>Position</span>
-					<select name='position' id='' bind:value={position}>
-						<option value='Manager'>Manager</option>
-						<option value='SDE'> Software Developer Engineer </option>
-						<option value='Sales Analyst'> Sales Analyst</option>
-					</select>
+					<div class='dropdown'>
+						<div
+							class={`dropdown__select ${position.value ? 'active' : ''}`}
+							onClick$={$(
+								() => (showPositionsModal.value = !showPositionsModal.value),
+							)}
+							tabIndex={0}
+							onKeyDown$={$((e) => {
+								if (e.key === 'Enter' || e.key === ' ') {
+									showPositionsModal.value = !showPositionsModal.value;
+								}
+								if (e.key === 'Escape') {
+									showPositionsModal.value = false;
+								}
+							})}
+						>
+							<span> {position.value || 'Please select a position'}</span>
+						</div>
+						{showPositionsModal.value && (
+							<ul class='dropdown__list'>
+								{['Manager', 'SDE', 'Sales Analyst'].map((pos) => (
+									<li
+										class='dropdown__item'
+										onClick$={$(() => {
+											position.value = pos;
+											showPositionsModal.value = false;
+										})}
+										key={pos}
+										tabIndex={0}
+										onKeyDown$={$((e) => {
+											if (e.key === 'Enter' || e.key === ' ') {
+												position.value = pos;
+												showPositionsModal.value = false;
+											}
+											if (e.key === 'Escape') {
+												showPositionsModal.value = false;
+											}
+										})}
+									>
+										{pos}
+									</li>
+								))}
+							</ul>
+						)}
+					</div>
 				</label>
+				<input type='hidden' name='position' bind:value={position} />
 				<label>
 					<span>Join Date</span>
 					<input type='date' name='date' id='' bind:value={joinDate} />

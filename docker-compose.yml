@@ -3,13 +3,17 @@ services:
     image: mysql:5.7
     container_name: mysqldb
     restart: unless-stopped
+    command: --default-authentication-plugin=mysql_native_password
     environment:
       MYSQL_ROOT_PASSWORD: herU@1234
       MYSQL_DATABASE: sep
       MYSQL_USER: admin
       MYSQL_PASSWORD: herU@1234
+      SERVICE_TAGS: dev
+      SERVICE_NAME: mysqldb
     ports:
       - 3306:3306
+    
     volumes:
       - ./db/init.sql:/docker-entrypoint-initdb.d/0_init.sql
       - $HOME/database:/var/lib/mysql
@@ -18,7 +22,7 @@ services:
     networks:
       - sep-network
   nodejs:
-    image: node:latest
+    image: node
     container_name: nodejs
     restart: always
     build: .
@@ -38,20 +42,6 @@ services:
       - sep-network
     depends_on:
       - mysqldb
-  client:
-    image: node:latest
-    container_name: client
-    restart: always
-    build: ./client
-    ports:
-      - 3000:3000
-    expose:
-      - 3000
-    environment:
-      PUBLIC_BACKEND_URL: 'http://localhost:3005'
-    command: npm run serve
-    networks:
-      - sep-network
 networks:
   sep-network:
     driver: bridge

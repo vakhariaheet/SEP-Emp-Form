@@ -19,6 +19,10 @@ app.post("/api/add", async (req, res) => {
     res.status(200).json({ message: "Employee added",isSuccess: true });
 })
 
+app.get("/get", async (req, res) => {
+    const result = await db.query("SELECT * FROM employees");
+    res.status(200).json({ data: result, isSuccess: true });
+});
 
 const PORT = process.env.PORT || 3004;
 app.listen(PORT, () => console.log(`Server running on port ${PORT} 🔥 🔥 `));

@@ -13,7 +13,16 @@ const init = () => {
         if (err) throw err;
         console.log('Connected!');
     });
-    connection.query('use sep');
+    connection.query(`use ${process.env.DB_NAME}`, (err, result) => {
+        if (err) throw err;
+        console.log("Database selected");
+    });
+    // Create table
+    connection.query("CREATE TABLE IF NOT EXISTS employees (id VARCHAR(255), name VARCHAR(255), salary INT(10), join_date DATE, position VARCHAR(255))", (err, result) => {
+        if (err) throw err;
+        console.log("Table created");
+    });
+
     return connection;    
 }
 

@@ -12,7 +12,12 @@ body {
 	font-family: 'Poppins', sans-serif;
 	line-height: 1.5;
 	color: #333;
-	background-color: #f4f4f4;
+	background: linear-gradient(
+		39deg,
+		rgba(255, 255, 255, 1) 0%,
+		rgba(58, 190, 255, 1) 49%,
+		rgba(255, 255, 255, 1) 100%
+	);
 }
 .form-container {
 	width: 100%;
@@ -30,64 +35,100 @@ body {
 		border-radius: 5px;
 		box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
 	}
-  input,select{
-    width: 100%;
-    padding: 1rem;
-    margin-bottom: 1rem;
-    border: 1px solid #ccc;
-    border-radius: 5px;
-    font-size: 1.6rem;
-  }
-  label{
-    display: block;
-    margin-bottom: 0.5rem;
-    font-size: 1.6rem;
-  }
-  h1{
-    text-align: center;
-    margin-bottom: 2rem;
-    font-size: 3rem;
-  }
-  p{
-    margin-bottom: 1rem;
-    font-size: 1.6rem;
-  }
-  button{
-    width: 100%;
-    padding: 1rem;
-    border: none;
-    border-radius: 5px;
-    background-color: #26a69a;
-    color: #fff;
-    font-size: 1.6rem;
-    cursor: pointer;
-    &:hover{
-      background-color: #2bbbad;
-    }
-  }
-  .acknowledgement{
-    color: red;
-   
-    min-height: 1.6rem;
-    opacity: 0;
-    transition: opacity 0.3s ease-in-out;
-    margin: 1rem;
-    font-size: 1.4rem;
-    &.error{
-      opacity: 1;
+	input,
+	select {
+		width: 100%;
+		padding: 1rem;
+		margin-bottom: 1rem;
+		border: 1px solid #ccc;
+		border-radius: 5px;
+		font-size: 1.6rem;
+	}
+	label {
+		display: block;
+		margin-bottom: 0.5rem;
+		font-size: 1.6rem;
+	}
+	h1 {
+		text-align: center;
+		margin-bottom: 2rem;
+		font-size: 3rem;
+	}
+	p {
+		margin-bottom: 1rem;
+		font-size: 1.6rem;
+	}
+	button {
+		width: 100%;
+		padding: 1rem;
+		border: none;
+		border-radius: 5px;
+		background-color: #26a69a;
+		color: #fff;
+		font-size: 1.6rem;
+		cursor: pointer;
+		&:hover {
+			background-color: #2bbbad;
+		}
+	}
+	.acknowledgement {
+		color: red;
 
-      &::before{
-        content: '⚠ ';
+		min-height: 1.6rem;
+		opacity: 0;
+		transition: opacity 0.3s ease-in-out;
+		margin: 1rem;
+		font-size: 1.4rem;
+		&.error {
+			opacity: 1;
+
+			&::before {
+				content: '⚠ ';
+			}
+		}
+		&.success {
+			opacity: 1;
+			color: green;
+			&::before {
+				content: '✓ ';
+			}
+		}
+	}
+	.dropdown {
+    position: relative;
+		&__select {
+			width: 100%;
+			padding: 1rem;
+			margin-bottom: 1rem;
+			border: 1px solid #ccc;
+			border-radius: 5px;
+			font-size: 1.6rem;
+      opacity: .5;
+      cursor: pointer;
+      &.active {
+        opacity: 1;
+      }
+		}
+    &__list {
+      width: 100%;
+      padding: 1rem;
+      margin-bottom: 1rem;
+      border: 1px solid #ccc;
+      background-color: #fff;
+      border-radius: 5px;
+      font-size: 1.6rem;
+      position: absolute;
+      top: 100%;
+      left: 0;
+
+    }
+    &__item {
+      padding: 1rem;
+      cursor: pointer;
+      list-style: none;
+      &:hover {
+        background-color: #eee;
       }
     }
-    &.success{
-      opacity: 1;
-      color: green;
-      &::before{
-        content: '✓ ';
-      }
-    }
-    
   }
-
 }

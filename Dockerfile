@@ -1,5 +1,5 @@
 # Use Node 16 alpine as parent image
-FROM node:16-alpine
+FROM node:latest
 
 # Change the working directory on the Docker image to /app
 WORKDIR /src
