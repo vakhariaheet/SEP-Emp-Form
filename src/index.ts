@@ -14,7 +14,7 @@ app.get("/", (req, res) => {
     res.send("Server running");
 })
 
-app.post("/api/add", async (req, res) => { 
+app.post("/api/add",  (req, res) => { 
     const { name, salary, date, position } = req.body;
     if(!name || !salary || !date || !position) return res.status(400).json({ message: "Please fill all the fields", isSuccess: false });
     const id = crypto.randomUUID();
@@ -24,7 +24,7 @@ app.post("/api/add", async (req, res) => {
     });
 })
 
-app.get("/get", async (req, res) => {
+app.get("/get", (req, res) => {
    db.query("SELECT * FROM employees", (err, result) => { 
        if (err) return res.status(500).json({ message: "Something went wrong", isSuccess: false,err });
         res.status(200).json({ data: result, isSuccess: true });
