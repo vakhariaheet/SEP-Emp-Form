@@ -36,6 +36,7 @@ Node.js is widely used in both frontend and backend development, powering variou
 - After installation, check the version of nodejs and npm using the following commands:
   - `node -v`
   - `npm -v`
+
 ### Installing dependencies
 - To install the dependencies, run the following command:
   - `npm install`
