@@ -1,5 +1,6 @@
-<img src="./media/gls.jpeg" width="200" align="center">
-
+<p align="center">
+  <img src="./media/gls.jpeg" />
+</p>
 ## SEP Topic 81
 Install nodejs and npm with respective version 8.10 and 3.5.2 to perform following server side scripting problem.
 Install the NPM package ‘mysql’ and create one db with table name “EmpInfo” having 5 records of Employee information.
