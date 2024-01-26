@@ -92,44 +92,6 @@ body {
 .form-container .acknowledgement.success::before {
   content: "✓ ";
 }
-.form-container .dropdown {
-  position: relative;
-}
-.form-container .dropdown__select {
-  width: 100%;
-  padding: 1rem;
-  margin-bottom: 1rem;
-  border: 1px solid #ccc;
-  border-radius: 5px;
-  font-size: 1.6rem;
-  opacity: 0.5;
-  cursor: pointer;
-}
-.form-container .dropdown__select.active {
-  opacity: 1;
-}
-.form-container .dropdown__list {
-  width: 100%;
-  padding: 1rem;
-  margin-bottom: 1rem;
-  border: 1px solid #ccc;
-  background-color: #fff;
-  border-radius: 5px;
-  font-size: 1.6rem;
-  position: absolute;
-  top: 100%;
-  left: 0;
-}
-.form-container .dropdown__item {
-  padding: 1rem;
-  cursor: pointer;
-  list-style: none;
-}
-.form-container .dropdown__item:hover {
-  background-color: #eee;
-}
-
-
 @keyframes slideInFromLeft {
   0% {
     opacity: 0;
