@@ -2,6 +2,7 @@
 Install nodejs and npm with respective version 8.10 and 3.5.2 to perform following server side scripting problem.
 Install the NPM package ‘mysql’ and create one db with table name “EmpInfo” having 5 records of Employee information.
 ### TEAM
+
 | Name          | Enrollment No.  | Roll No | Sem |
 | ------------- | --------------- | ------- | --- |
 | Heet Vakharia | 202201619010226 | B114    | 4   |
