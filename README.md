@@ -105,3 +105,14 @@ Node.js is widely used in both frontend and backend development, powering variou
 
 ### Output 
 ![Output](./media/output.gif)
+
+### Source Code
+
+- index.js - [src/index.js](./src/index.js)
+![index.js](./media/index.png)
+- index.ejs - [src/views/index.ejs](./src/views/index.ejs)
+![index.ejs](./media/indexEJS.png)
+- initialSetup.js - [src/utils/initialSetup.js](./src/utils/initialSetup.js)
+![initialSetup.js](./media/initialSetup.png)
+- app.css - [public/app.css](./public/app.css)
+![app.css](./media/appCSS.png)
