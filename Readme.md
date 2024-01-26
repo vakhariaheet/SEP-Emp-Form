@@ -1,6 +1,15 @@
 ## SEP Topic 81
 Install nodejs and npm with respective version 8.10 and 3.5.2 to perform following server side scripting problem.
 Install the NPM package ‘mysql’ and create one db with table name “EmpInfo” having 5 records of Employee information.
+### TEAM
+| Name | Enrollment No. | Roll No | Sem
+| --- | --- | --- | --- |
+| Heet Vakharia | 202201619010226  | B114 | 4 |
+| Lisha Modhiya | 202201619010156  | B42 | 4 |
+| Honey Patel | 202201619010292  | C62 | 4 |
+| Shreena Shah | 202201619010200  | B88 | 4 |
+| Sakshi Patel | 202201619010173  | B60 | 4 |
+
 ### Intro to Nodejs
 Node.js is a powerful, open-source, cross-platform JavaScript runtime environment built on Chrome's V8 JavaScript engine. Developed by Ryan Dahl in 2009, Node.js enables developers to run JavaScript code outside the web browser, allowing them to build scalable, high-performance network applications. It utilizes an event-driven, non-blocking I/O model, making it efficient for handling asynchronous operations commonly found in web development.
 
