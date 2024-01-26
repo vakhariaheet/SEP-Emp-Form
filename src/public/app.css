@@ -1,0 +1,142 @@
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  font-size: 62.5%;
+}
+
+body {
+  font-family: "Poppins", sans-serif;
+  line-height: 1.5;
+  color: #333;
+  background: linear-gradient(39deg, white 0%, #3abeff 49%, white 100%);
+}
+
+.form-container {
+  width: 100%;
+  height: 100%;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+.form-container form {
+  width: 100%;
+  max-width: 500px;
+  padding: 2rem;
+  background-color: #fff;
+  border-radius: 5px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+}
+.form-container input,
+.form-container select {
+  width: 100%;
+  padding: 1rem;
+  margin-bottom: 1rem;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  font-size: 1.6rem;
+}
+.form-container label {
+  display: block;
+  margin-bottom: 0.5rem;
+  font-size: 1.6rem;
+}
+.form-container h1 {
+  text-align: center;
+  margin-bottom: 2rem;
+  font-size: 3rem;
+}
+.form-container p {
+  margin-bottom: 1rem;
+  font-size: 1.6rem;
+}
+.form-container button {
+  width: 100%;
+  padding: 1rem;
+  border: none;
+  border-radius: 5px;
+  background-color: #26a69a;
+  color: #fff;
+  font-size: 1.6rem;
+  cursor: pointer;
+}
+.form-container button:hover {
+  background-color: #2bbbad;
+}
+.form-container .acknowledgement {
+  color: red;
+  min-height: 1.6rem;
+  opacity: 0;
+  transition: opacity 0.3s ease-in-out;
+  margin: 1rem;
+  font-size: 1.4rem;
+  animation: slideInFromLeft 0.3s ease-in-out;
+}
+.form-container .acknowledgement.error {
+  opacity: 1;
+}
+.form-container .acknowledgement.error::before {
+  content: "⚠ ";
+}
+.form-container .acknowledgement.success {
+  opacity: 1;
+  color: green;
+}
+.form-container .acknowledgement.success::before {
+  content: "✓ ";
+}
+.form-container .dropdown {
+  position: relative;
+}
+.form-container .dropdown__select {
+  width: 100%;
+  padding: 1rem;
+  margin-bottom: 1rem;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  font-size: 1.6rem;
+  opacity: 0.5;
+  cursor: pointer;
+}
+.form-container .dropdown__select.active {
+  opacity: 1;
+}
+.form-container .dropdown__list {
+  width: 100%;
+  padding: 1rem;
+  margin-bottom: 1rem;
+  border: 1px solid #ccc;
+  background-color: #fff;
+  border-radius: 5px;
+  font-size: 1.6rem;
+  position: absolute;
+  top: 100%;
+  left: 0;
+}
+.form-container .dropdown__item {
+  padding: 1rem;
+  cursor: pointer;
+  list-style: none;
+}
+.form-container .dropdown__item:hover {
+  background-color: #eee;
+}
+
+
+@keyframes slideInFromLeft {
+  0% {
+    opacity: 0;
+    transform: translateY(2rem);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}

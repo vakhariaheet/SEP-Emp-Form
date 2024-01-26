@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="/app.css" />
+    <title>Emp Form</title>
+</head>
+
+<body>
+    <div class="form-container">
+        <h1>Employee Information Hub</h1>
+        <p>Provide and manage your information here.</p>
+        <form action="/api/add" method="POST" class="form-">
+            <label for="name">Name</label>
+            <input type="text" name="name" id="name" placeholder="Enter Name" />
+            <br />
+            <label for="salary">Salary</label>
+            <input type="number" name="salary" id="salary" placeholder="Enter Salary" min="10000" />
+            <br />
+            <label for="date">Join Date</label>
+            <input type="date" name="date" id="date" placeholder="Enter Join Date" />
+            <br />
+            <label for="position">Position</label>
+            <select name="position" id="position">
+                <option value="Developer">Developer</option>
+                <option value="Tester">Tester</option>
+                <option value="Manager">Manager</option>
+            </select>
+            <br />
+            <button>Submit</button>
+        </form>
+
+        <% if (message) { %>
+            <% if(isSuccess) { %>
+                <p class="acknowledgement success">
+                    <%= message %>
+                </p>
+            <% } else { %>
+                    <p class="acknowledgement error">
+                        <%= message %>
+                    </p>
+            <% } %>
+        <% } %>
+    </div>
+    <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.9.2/dist/confetti.browser.min.js"></script>
+    <script>
+        const button = document.querySelector('button');
+        const shoot = () => {
+            confetti({
+                spread: 360,
+                ticks: 70,
+                gravity: 0,
+                decay: 0.95,
+                startVelocity: 30,
+                colors: [ '006ce9', 'ac7ff4', '18b6f6', '713fc2', 'ffffff' ],
+                origin: {
+                    x: 0.5,
+                    y: 0.35,
+                },
+            });
+        }
+        const isSuccess = <%= isSuccess %>;
+        const message = '<%= message %>';
+        if (message && isSuccess) {
+            shoot();
+            setTimeout(shoot, 0);
+            setTimeout(shoot, 100);
+            setTimeout(shoot, 200);
+            setTimeout(shoot, 300);
+            setTimeout(shoot, 400);
+        }
+    </script>
+</body>
+
+</html>

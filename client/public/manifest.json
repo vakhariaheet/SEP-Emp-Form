@@ -1,9 +1,0 @@
-{
-  "$schema": "https://json.schemastore.org/web-manifest-combined.json",
-  "name": "employee-form",
-  "short_name": "SEP Project Employee Form",
-  "start_url": ".",
-  "display": "standalone",
-  "background_color": "#fff",
-  "description": "Employee Form for SEP Project"
-}
