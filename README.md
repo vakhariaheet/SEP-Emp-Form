@@ -20,14 +20,10 @@ Node.js is widely used in both frontend and backend development, powering variou
 ### Installing Nodejs and npm
 1. Linux 
 - We can install nodejs and npm using the following commands:
-  - Update the package index
-    - `sudo apt-get update`
-  - Download the script from nodesource and run it
-    - `curl -sL https://deb.nodesource.com/setup_8.10 -o /tmp/nodesource_setup.sh`
-  - Configure the package repository
-    - `sudo bash /tmp/nodesource_setup.sh`
-  - Install nodejs
-    - `sudo apt-get install nodejs`
+  - Update the package index - `sudo apt-get update`
+  - Download the script from nodesource and run it - `curl -sL https://deb.nodesource.com/setup_8.10 -o /tmp/nodesource_setup.sh`
+  - Configure the package repository - `sudo bash /tmp/nodesource_setup.sh`
+  - Install nodejs - `sudo apt-get install nodejs`
   - You can verify the installation using the following commands:
     - `node -v`
     - `npm -v`
