@@ -23,8 +23,19 @@ app.post("/api/add",  (req, res) => {
         app.locals.isSuccess = false;
         return res.redirect("/");
     }
+    if (isNaN(salary) || salary < 100000) {
+        app.locals.message = "Please provide valid salary";
+        app.locals.isSuccess = false;
+        return res.redirect("/");
+    }
+    if (name.match(/^[a-zA-Z ]*$/) === null) { 
+        app.locals.message = "Please provide valid name";
+        app.locals.isSuccess = false;
+        return res.redirect("/");
+    }
+
     const id = uid();
-    db.query(`INSERT INTO employees (id,name, salary, join_date, position) VALUES ('${id}','${name}', ${salary}, '${date}', '${position}')`, (err, result) => { 
+    db.query(`INSERT INTO EmpInfo (id,name, salary, join_date, position) VALUES ('${id}','${name}', ${salary}, '${date}', '${position}')`, (err, result) => { 
         if (err) {
             app.locals.message = "Something went wrong";
             app.locals.isSuccess = false;

@@ -8,17 +8,12 @@ const init = () => {
         password: process.env.DB_PASSWORD,
         database: process.env.DB_NAME
     });
-
     connection.connect((err) => {
         if (err) throw err;
         console.log('Connected!');
     });
-    connection.query(`use ${process.env.DB_NAME}`, (err, result) => {
-        if (err) throw err;
-        console.log("Database selected");
-    });
     // Create table
-    connection.query("CREATE TABLE IF NOT EXISTS employees (id VARCHAR(255), name VARCHAR(255), salary INT(10), join_date DATE, position VARCHAR(255))", (err, result) => {
+    connection.query("CREATE TABLE IF NOT EXISTS EmpInfo (id VARCHAR(255), name VARCHAR(255), salary INT(10), join_date DATE, position VARCHAR(255))", (err, result) => {
         if (err) throw err;
         console.log("Table created");
     });

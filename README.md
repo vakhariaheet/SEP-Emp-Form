@@ -1,9 +1,11 @@
 <p align="center">
   <img src="./media/gls.jpeg" />
 </p>
+
 ## SEP Topic 81
 Install nodejs and npm with respective version 8.10 and 3.5.2 to perform following server side scripting problem.
 Install the NPM package ‘mysql’ and create one db with table name “EmpInfo” having 5 records of Employee information.
+
 ### Mentor: Prof. Nirav Suthar
 
 ### TEAM
@@ -24,6 +26,7 @@ Node.js is a powerful, open-source, cross-platform JavaScript runtime environmen
 One of the key features of Node.js is its package ecosystem, managed by npm (Node Package Manager). npm is the world's largest software registry, housing over a million packages of reusable code. It allows developers to easily install, share, and manage dependencies for their projects. With npm, developers can quickly integrate libraries, frameworks, and tools into their applications, significantly speeding up the development process.
 
 Node.js is widely used in both frontend and backend development, powering various types of applications such as web servers, APIs, microservices, and command-line tools. Its lightweight, event-driven architecture makes it ideal for building real-time applications, streaming services, and IoT (Internet of Things) devices. Combined with npm's extensive ecosystem, Node.js empowers developers to create robust, scalable, and feature-rich applications with JavaScript, making it a popular choice in the development community.
+
 ### Installing Nodejs and npm
 1. Linux 
 - We can install nodejs and npm using the following commands:
@@ -107,7 +110,7 @@ Node.js is widely used in both frontend and backend development, powering variou
   3. 500 - There was an error while adding the employee to the database.
 
 ### Output 
-![Output](./media/output.gif)
+[![Output](./media/output.gif)](https://tiny-tuna-tights.cyclic.app/)
 
 ### Source Code
 
