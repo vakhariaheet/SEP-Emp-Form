@@ -73,10 +73,11 @@ Node.js is widely used in both frontend and backend development, powering variou
 
 ### API Endpoints
 
-| Endpoint      | Description                                  |
-| ------------- | -------------------------------------------- |
-| GET /         | This will return the home page               |
-| POST /api/add | This will add a new employee to the database |
+| Endpoint       | Description                                  |
+| -------------- | -------------------------------------------- |
+| GET /          | This will return the home page               |
+| GET /employees | This will return all employees page          |
+| POST /api/add  | This will add a new employee to the database |
 
 ### Database Schema
 - The database schema is as follows:
@@ -109,8 +110,18 @@ Node.js is widely used in both frontend and backend development, powering variou
   2. 400 - The request body was invalid.
   3. 500 - There was an error while adding the employee to the database.
 
+#### GET /employees
+- This will return all the employees in the database.
+- The response will contain the following parameters:
+  1. employees - This will contain the list of all the employees in the database.
+  2. formatDate - This will contain a function to format the date.
+- Possible responses:
+  1. 200 - The employees were fetched successfully.
+  2. 500 - There was an error while fetching the employees from the database.
+
 ### Output 
-[![Output](./media/output.gif)](https://tiny-tuna-tights.cyclic.app/)
+[Live Demo](https://cute-rose-crayfish-sari.cyclic.app)
+[![Output](./media/output.gif)](https://cute-rose-crayfish-sari.cyclic.app)
 
 ### Source Code
 
@@ -118,7 +129,10 @@ Node.js is widely used in both frontend and backend development, powering variou
 ![index.js](./media/index.png)
 - index.ejs - [src/views/index.ejs](https://github.com/vakhariaheet/SEP-Emp-Form/blob/nodev8/src/views/index.ejs)
 ![index.ejs](./media/indexEJS.png)
+- emp - [src/views/emp.ejs](https://github.com/vakhariaheet/SEP-Emp-Form/blob/nodev8/src/views/emp.ejs)
+![emp.ejs](./media/emp.png)
 - initialSetup.js - [src/utils/initialSetup.js](https://github.com/vakhariaheet/SEP-Emp-Form/blob/nodev8/src/utils/initialSetup.js)
 ![initialSetup.js](./media/initialSetup.png)
 - app.css - [public/app.css](https://github.com/vakhariaheet/SEP-Emp-Form/blob/nodev8/public/app.css)
 ![app.css](./media/appCSS.png)
+**Note** - Only the important files are shown here. To view all the files, please visit the [github repository](https://github.com/vakhariaheet/SEP-Emp-Form/blob/nodev8).

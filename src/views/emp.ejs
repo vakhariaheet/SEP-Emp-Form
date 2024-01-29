@@ -1,0 +1,48 @@
+<%- include('partials/header') %>
+    <div class="emp-container">
+        <h1>Employee Information Hub</h1>
+
+        <div class="grid">
+            <% for(let i=0;i<employees.length;i++ ){%>
+                <div class="emp">
+                    <div class="emp__img">
+                        <img src="https://api.multiavatar.com/<%=employees[i].name%>.svg" alt="">
+                    </div>
+                    <div class="emp_content">
+                        <h3>
+                            <%= employees[i].name %>
+                        </h3>
+                        <div class="emp_lowerbar">
+                            <div class="emp_row">
+                                <p>
+                                    Salary
+                                </p>
+                                <p> $<%= employees[i].salary %>
+                                </p>
+                            </div>
+                            <div class="emp_row">
+                                <p>
+                                    Join Date
+                                </p>
+                                <p>
+                                    <%=formatDate(employees[i].join_date) %>
+                                </p>
+                            </div>
+                            <div class="emp_row">
+                                <p>
+                                    Position
+                                </p>
+                                <p>
+                                    <%=employees[i].position %>
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <% } %>
+        </div>
+        <a href="/">
+            Add Employee
+        </a>
+    </div>
+    <%- include('partials/footer') %>

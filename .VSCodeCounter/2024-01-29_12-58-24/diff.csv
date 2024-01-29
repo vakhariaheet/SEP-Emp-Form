@@ -1,0 +1,9 @@
+"filename", "language", "HTML", "JavaScript", "CSS", "comment", "blank", "total"
+"/Users/vakhariaheet/Desktop/personal/SEP/T2/public/app.css", "CSS", 0, 0, 11, 1, 2, 14
+"/Users/vakhariaheet/Desktop/personal/SEP/T2/src/index.js", "JavaScript", 0, 10, 0, 0, 1, 11
+"/Users/vakhariaheet/Desktop/personal/SEP/T2/src/utils/utils.js", "JavaScript", 0, 14, 0, 0, 1, 15
+"/Users/vakhariaheet/Desktop/personal/SEP/T2/src/views/emp.ejs", "HTML", 14, 0, 0, 0, 1, 15
+"/Users/vakhariaheet/Desktop/personal/SEP/T2/src/views/index.ejs", "HTML", -49, 0, 0, -3, -1, -53
+"/Users/vakhariaheet/Desktop/personal/SEP/T2/src/views/partials/footer.ejs", "HTML", 2, 0, 0, 0, 0, 2
+"/Users/vakhariaheet/Desktop/personal/SEP/T2/src/views/partials/header.ejs", "HTML", 48, 0, 0, 3, 3, 54
+"Total", "-", 15, 24, 11, 1, 7, 58

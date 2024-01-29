@@ -1,124 +1,74 @@
-<!DOCTYPE html>
-<html lang="en">
-	<head>
-		<meta charset="UTF-8" />
-		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
-		<link rel="stylesheet" href="/app.css" />
-		<link rel="preconnect" href="https://fonts.googleapis.com" />
-		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-		<link
-			href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600&display=swap"
-			rel="stylesheet"
+<%- include('partials/header') %>
+<div class="form-container">
+	<h1>Employee Information Hub</h1>
+	<p>Provide and manage your information here.</p>
+	<form action="/api/add" method="POST" class="form-">
+		<label for="name">Name</label>
+		<input type="text" name="name" id="name" placeholder="Enter Name" />
+		<br />
+		<label for="salary">Salary</label>
+		<input
+			type="number"
+			name="salary"
+			id="salary"
+			placeholder="Enter Salary"
+			min="10000"
 		/>
-		<!-- Primary Meta Tags -->
-		<title>SEP: Employee Form</title>
-		<meta name="title" content="SEP: Employee Form " />
-		<meta
-			name="description"
-			content="Project Topic: Install node js and npm with respective versions 8.10 and 3.5.2 to perform the following server-side scripting problem. Install the NPM package ‘MySQL’ and create one db with table name “EmpInfo” having 5 records of Employee information.
-SEP Project 81 By students of FCAIT, GLS University"
+		<br />
+		<label for="date">Join Date</label>
+		<input
+			type="date"
+			name="date"
+			id="date"
+			placeholder="Enter Join Date"
 		/>
-		<!-- Open Graph / Facebook -->
-		<meta property="og:type" content="website" />
-		<meta property="og:url" content="https://tiny-tuna-tights.cyclic.app/" />
-		<meta property="og:title" content="SEP: Employee Form " />
-		<meta
-			property="og:description"
-			content="Project Topic: Install node js and npm with respective versions 8.10 and 3.5.2 to perform the following server-side scripting problem. Install the NPM package ‘MySQL’ and create one db with table name “EmpInfo” having 5 records of Employee information.
-SEP Project 81 By students of FCAIT, GLS University"
-		/>
-		<meta
-			property="og:image"
-			content="/output.png"
-		/>
+		<br />
+		<label for="position">Position</label>
+		<select name="position" id="position">
+			<option value="Developer">Developer</option>
+			<option value="Tester">Tester</option>
+			<option value="Manager">Manager</option>
+		</select>
+		<br />
+		<button>Submit</button>
+	</form>
 
-		<!-- Twitter -->
-		<meta property="twitter:card" content="summary_large_image" />
-		<meta
-			property="twitter:url"
-			content="https://tiny-tuna-tights.cyclic.app/"
-		/>
-		<meta property="twitter:title" content="SEP: Employee Form " />
-		<meta
-			property="twitter:description"
-			content="Project Topic: Install node js and npm with respective versions 8.10 and 3.5.2 to perform the following server-side scripting problem. Install the NPM package ‘MySQL’ and create one db with table name “EmpInfo” having 5 records of Employee information.
-SEP Project 81 By students of FCAIT, GLS University"
-		/>
-		<meta
-			property="twitter:image"
-			content="/output.png"
-		/>
-		<title>Emp Form</title>
-	</head>
+	<% if (message) { %> <% if(isSuccess) { %>
+	<p class="acknowledgement success"><%= message %></p>
+	<% } else { %>
+	<p class="acknowledgement error"><%= message %></p>
+	<% } %> <% } %>
+	<a href="/employees">
+		Employee List
+	</a>
+</div>
+<script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.9.2/dist/confetti.browser.min.js"></script>
+<script>
+	const button = document.querySelector('button');
+	const shoot = () => {
+		confetti({
+			spread: 360,
+			ticks: 70,
+			gravity: 0,
+			decay: 0.95,
+			startVelocity: 30,
+			colors: [ '006ce9', 'ac7ff4', '18b6f6', '713fc2', 'ffffff' ],
+			origin: {
+				x: 0.5,
+				y: 0.35,
+			},
+		});
+	}
+	const isSuccess = <%= isSuccess %>;
+	const message = '<%= message %>';
+	if (message && isSuccess) {
+		shoot();
+		setTimeout(shoot, 0);
+		setTimeout(shoot, 100);
+		setTimeout(shoot, 200);
+		setTimeout(shoot, 300);
+		setTimeout(shoot, 400);
+	}
+</script>
 
-	<body>
-		<div class="form-container">
-			<h1>Employee Information Hub</h1>
-			<p>Provide and manage your information here.</p>
-			<form action="/api/add" method="POST" class="form-">
-				<label for="name">Name</label>
-				<input type="text" name="name" id="name" placeholder="Enter Name" />
-				<br />
-				<label for="salary">Salary</label>
-				<input
-					type="number"
-					name="salary"
-					id="salary"
-					placeholder="Enter Salary"
-					min="10000"
-				/>
-				<br />
-				<label for="date">Join Date</label>
-				<input
-					type="date"
-					name="date"
-					id="date"
-					placeholder="Enter Join Date"
-				/>
-				<br />
-				<label for="position">Position</label>
-				<select name="position" id="position">
-					<option value="Developer">Developer</option>
-					<option value="Tester">Tester</option>
-					<option value="Manager">Manager</option>
-				</select>
-				<br />
-				<button>Submit</button>
-			</form>
-
-			<% if (message) { %> <% if(isSuccess) { %>
-			<p class="acknowledgement success"><%= message %></p>
-			<% } else { %>
-			<p class="acknowledgement error"><%= message %></p>
-			<% } %> <% } %>
-		</div>
-		<script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.9.2/dist/confetti.browser.min.js"></script>
-		<script>
-			const button = document.querySelector('button');
-			const shoot = () => {
-			    confetti({
-			        spread: 360,
-			        ticks: 70,
-			        gravity: 0,
-			        decay: 0.95,
-			        startVelocity: 30,
-			        colors: [ '006ce9', 'ac7ff4', '18b6f6', '713fc2', 'ffffff' ],
-			        origin: {
-			            x: 0.5,
-			            y: 0.35,
-			        },
-			    });
-			}
-			const isSuccess = <%= isSuccess %>;
-			const message = '<%= message %>';
-			if (message && isSuccess) {
-			    shoot();
-			    setTimeout(shoot, 0);
-			    setTimeout(shoot, 100);
-			    setTimeout(shoot, 200);
-			    setTimeout(shoot, 300);
-			    setTimeout(shoot, 400);
-			}
-		</script>
-	</body>
-</html>
+<%- include('partials/footer') %>
